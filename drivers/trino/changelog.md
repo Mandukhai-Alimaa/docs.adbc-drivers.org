@@ -17,6 +17,16 @@
 
 # Changelog for Trino Driver
 
+## v0.5.0 (2026-07-06)
+
+New features:
+
+- Add `ARRAY` column type support
+
+Fixes:
+
+- Support TLS connections and validate over TLS
+
 ## v0.4.0 (2026-06-09)
 
 New features:
