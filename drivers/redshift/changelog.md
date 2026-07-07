@@ -17,6 +17,16 @@
 
 # Changelog for Amazon Redshift Driver
 
+## v1.4.0 (2026-07-07)
+
+New features:
+
+- Send `driver_version`
+
+Fixes:
+
+- Correct handling of decimal values
+
 ## v1.3.0 (2026-05-25)
 
 New features:
