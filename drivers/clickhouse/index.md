@@ -21,10 +21,12 @@
 :maxdepth: 1
 :hidden:
 
-prerelease.md
+Changelog <changelog.md>
+v0.1.0 <v0.1.0.md>
+v0.1.0-alpha.2 <prerelease.md>
 :::
 
-[{badge-primary}`Driver Version|v0.1.0-alpha.2`](#driver-clickhouse-v0.1.0-alpha.2 "Permalink") {badge-secondary}`Release Date|2026-05-21` {badge-success}`Tested With|ClickHouse 25.12`
+[{badge-primary}`Driver Version|v0.1.0`](#driver-clickhouse-v0.1.0 "Permalink") {badge-secondary}`Release Date|2026-07-06` {badge-success}`Tested With|ClickHouse 26.4`
 
 This driver provides access to [ClickHouse][clickhouse], an open source data warehouse and analytical database.  It is developed by ClickHouse, Inc.  The source code can be found at [adbc_clickhouse](https://github.com/ClickHouse/adbc_clickhouse); the ADBC Driver Foundry distributes precompiled binaries of the upstream sources for Linux, macOS, and Windows.
 
@@ -35,12 +37,8 @@ ClickHouse is a trademark of ClickHouse, Inc. https://clickhouse.com
 The ClickHouse driver can be installed with [dbc](https://docs.columnar.tech/dbc):
 
 ```bash
-dbc install --pre clickhouse
+dbc install clickhouse
 ```
-
-:::{note}
-Only prerelease versions of the driver are currently available, so you must use `--pre` with dbc 0.2.0 or newer to install the driver.
-:::
 
 ## Connecting
 
@@ -659,6 +657,12 @@ timestamp[us] (with time zone)
 </tr>
 </tbody>
 </table>
+
+## Compatibility
+
+This driver was tested on:
+
+- ClickHouse `26.4.4.38`
 
 [^1]: Date32 has limited range (1900-01-01 to 2299-12-31)
 [^2]: ClickHouse datetime without timezone is interpreted in **server** timezone
