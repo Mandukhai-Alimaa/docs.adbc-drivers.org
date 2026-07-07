@@ -21,7 +21,7 @@
 
 New features:
 
-- Add broader support for Microsoft Fabric Data Warehouse, including ingest support, OneLake support, `INSERT BULK`, and compatibility improvements
+- Add support for Microsoft Fabric Data Warehouse, including ingest support, OneLake support, `INSERT BULK`, and compatibility improvements
 - Add support for querying, binding, and ingesting `SQL_VARIANT`
 - Add support for injecting an application name into connections
 - Add an option to allow unsafe casts for ingesting Parquet
