@@ -17,6 +17,18 @@
 
 # Changelog for Microsoft SQL Server Driver
 
+## v1.5.0 (2026-07-07)
+
+New features:
+
+- Add support for Microsoft Fabric Data Warehouse, including ingest support, OneLake support, `INSERT BULK`, and compatibility improvements
+- Add support for querying, binding, and ingesting `SQL_VARIANT`
+
+Fixes:
+
+- {{BREAKING_CHANGE}} When ingesting `geoarrow.wkb`, ingest as GEOGRAPHY only when SRID and `"edges":"spherical"` are defined. See the new option `mssql.ingest.geo_type`
+- Fix typos in `INSERT BULK` support
+
 ## v1.4.1 (2026-05-22)
 
 Fixes:
