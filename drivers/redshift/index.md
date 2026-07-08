@@ -495,7 +495,7 @@ VARBYTE ⚠️ [^2]
 </td>
 <td style="text-align: center;">
 
-VARBINARY
+VARBYTE
 
 </td>
 </tr>
@@ -553,7 +553,7 @@ DECIMAL
 </td>
 <td style="text-align: center;">
 
-NUMERIC
+DECIMAL, NUMERIC ⚠️ [^10]
 
 </td>
 </tr>
@@ -582,7 +582,7 @@ SUPER
 </td>
 <td style="text-align: center;">
 
-SUPER ⚠️ [^12]
+SUPER ⚠️ [^11]
 
 </td>
 </tr>
@@ -633,7 +633,7 @@ VARBYTE ⚠️ [^2]
 </td>
 <td style="text-align: center;">
 
-❌ [^10]
+❌ [^12]
 
 </td>
 </tr>
@@ -689,14 +689,9 @@ SMALLINT
 int32
 
 </td>
-<td style="text-align: center;">
+<td colspan="2" style="text-align: center;">
 
 INTEGER
-
-</td>
-<td style="text-align: center;">
-
-INT
 
 </td>
 </tr>
@@ -725,7 +720,7 @@ VARBYTE ⚠️ [^2]
 </td>
 <td style="text-align: center;">
 
-VARBINARY
+VARBYTE
 
 </td>
 </tr>
@@ -793,7 +788,7 @@ VARCHAR
 </td>
 <td style="text-align: center;">
 
-❌ [^11]
+❌ [^13]
 
 </td>
 </tr>
@@ -822,7 +817,7 @@ TIME
 </td>
 <td style="text-align: center;">
 
-❌ [^13]
+❌ [^14]
 
 </td>
 </tr>
@@ -839,7 +834,7 @@ TIME
 </td>
 <td style="text-align: center;">
 
-❌ [^13]
+❌ [^14]
 
 </td>
 </tr>
@@ -856,7 +851,7 @@ TIME
 </td>
 <td style="text-align: center;">
 
-❌ [^13]
+❌ [^14]
 
 </td>
 </tr>
@@ -873,7 +868,7 @@ TIME
 </td>
 <td style="text-align: center;">
 
-❌ [^13]
+❌ [^14]
 
 </td>
 </tr>
@@ -895,9 +890,14 @@ TIMESTAMP
 timestamp[ms] (with time zone)
 
 </td>
-<td colspan="2" style="text-align: center;">
+<td style="text-align: center;">
 
 TIMESTAMP(3) WITH TIME ZONE
+
+</td>
+<td style="text-align: center;">
+
+TIMESTAMPTZ
 
 </td>
 </tr>
@@ -924,9 +924,14 @@ TIMESTAMP
 timestamp[ns] (with time zone)
 
 </td>
-<td colspan="2" style="text-align: center;">
+<td style="text-align: center;">
 
 TIMESTAMP(9) WITH TIME ZONE
+
+</td>
+<td style="text-align: center;">
+
+TIMESTAMPTZ
 
 </td>
 </tr>
@@ -948,9 +953,14 @@ TIMESTAMP
 timestamp[s] (with time zone)
 
 </td>
-<td colspan="2" style="text-align: center;">
+<td style="text-align: center;">
 
 TIMESTAMP(0) WITH TIME ZONE
+
+</td>
+<td style="text-align: center;">
+
+TIMESTAMPTZ
 
 </td>
 </tr>
@@ -972,9 +982,14 @@ TIMESTAMP
 timestamp[us] (with time zone)
 
 </td>
-<td colspan="2" style="text-align: center;">
+<td style="text-align: center;">
 
 TIMESTAMP(6) WITH TIME ZONE
+
+</td>
+<td style="text-align: center;">
+
+TIMESTAMPTZ
 
 </td>
 </tr>
@@ -985,8 +1000,6 @@ TIMESTAMP(6) WITH TIME ZONE
 
 To see documentation for previous versions of this driver, see the following:
 
-- [v1.3.0](./v1.3.0.md)
-- [v1.2.1](./v1.2.1.md)
 - [v1.1.0](./v1.1.0.md)
 - [v1.0.0](./v1.0.0.md)
 
@@ -999,9 +1012,10 @@ To see documentation for previous versions of this driver, see the following:
 [^7]: precision is limited
 [^8]: Timestamp will be rounded to microseconds
 [^9]: arrow-go does not support writing binary view to Parquet
-[^10]: Redshift cannot read Parquet files with fixed-size binary columns
-[^11]: arrow-go does not support writing string view to Parquet
-[^12]: Redshift interprets the JSON data as a string, so the result will be unexpected.  Use struct/list data instead.
-[^13]: Redshift raises an ASSERT
+[^10]: Negative scales are not supported
+[^11]: Redshift interprets the JSON data as a string, so the result will be unexpected.  Use struct/list data instead.
+[^12]: Redshift cannot read Parquet files with fixed-size binary columns
+[^13]: arrow-go does not support writing string view to Parquet
+[^14]: Redshift raises an ASSERT
 
 [redshift]: https://aws.amazon.com/redshift/

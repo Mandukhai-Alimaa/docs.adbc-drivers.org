@@ -19,10 +19,6 @@
 
 ## v1.4.0 (2026-07-07)
 
-New features:
-
-- Send `driver_version`
-
 Fixes:
 
 - Correctly query decimal values whose decimal representation ended in multiple zeroes
