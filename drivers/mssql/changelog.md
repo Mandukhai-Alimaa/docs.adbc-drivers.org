@@ -30,7 +30,7 @@ New features:
 
 Fixes:
 
-- Account for GeoArrow edge semantics when choosing the ingest type
+- {{BREAKING_CHANGE}} When ingesting `geoarrow.wkb`, ingest as GEOGRAPHY only when SRID and `"edges":"spherical"` are defined. See the new option `mssql.ingest.geo_type`
 - Improve `TIME` and `DATETIME2` support on Fabric Data Warehouse
 - Override additional queries for Fabric Data Warehouse
 - Fix typos in `INSERT BULK` support
