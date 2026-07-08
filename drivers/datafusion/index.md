@@ -420,7 +420,7 @@ NUMERIC
 </td>
 <td style="text-align: center;">
 
-DECIMAL
+DECIMAL, NUMERIC
 
 </td>
 </tr>
@@ -784,6 +784,26 @@ TIMESTAMP WITH TIME ZONE
 [^1]: DataFusion uses nanosecond precision; max timestamp is 2262-04-11T23:47:16
 [^2]: DataFusion does not preserve timezone metadata in Arrow output
 [^3]: Return type is inconsistent depending on how the query was written
+
+### Partitioned Execution
+
+This driver supports ADBC's partitioned execution; one partition is generated per output partition. Each partition contains the physical plan, and can be distributed across CPUs or physical machines. If the plan contains a shuffle, however, distributed execution will likely be slower, as each partition must read the entire output.
+
+The statement option `datafusion.partition_mode` controls what to do if a shuffle is detected:
+
+| Value            | Behavior                                                                            |
+|------------------|-------------------------------------------------------------------------------------|
+| `auto` (default) | Collapse to a single partition when the plan shuffles, otherwise natural partitions |
+| `multi`          | One descriptor per natural output partition; logs a warning if the plan shuffles    |
+| `single`         | Always collapse to a single partition (effectively the same as regular execution)   |
+
+### Extending DataFusion
+
+It is possible to customize the embedded DataFusion by depending on this crate, then using hooks to customize the DataFusion `SessionContext` and register `PhysicalExtensionCodec`s. The customized driver can then be built into a shared library and distributed as an ADBC driver. For more, see:
+
+- `DataFusionDriver::new_with_context_init`, which accepts a callback to modify the `SessionContext`
+- `DataFusionDriver::with_codec`, which accepts a `PhysicalExtensionCodec` used to serialize/deserialize plans in partitioned execution
+- The [`adbc_ffi`](https://crates.io/crates/adbc_ffi) crate, which provides helpers to export a Rust ADBC driver as a shared library
 
 ## Compatibility
 
