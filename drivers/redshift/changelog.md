@@ -25,7 +25,7 @@ New features:
 
 Fixes:
 
-- Correct handling of decimal values
+- Correctly query decimal values whose decimal representation ended in multiple zeroes
 
 ## v1.3.0 (2026-05-25)
 
