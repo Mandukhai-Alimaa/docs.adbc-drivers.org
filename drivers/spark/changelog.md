@@ -27,6 +27,7 @@ New features:
 
 Fixes:
 
+- Bumped Go version to address security vulnerabilities (CVEs)
 - Properly release Spark Connect sessions on disconnect
 - Accept `auth_type=none` for Livy
 - Accept no username with Spark Connect when `auth_type=none`
