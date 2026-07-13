@@ -17,6 +17,13 @@
 
 # Changelog for MySQL/MariaDB Driver
 
+
+## v0.5.0 (2026-07-10)
+
+## New Features
+
+- Add option to control how date(time)s with zero components (`0000-00-00`) are read (either raising an error, or treating it as NULL)
+
 ## v0.4.0 (2026-06-18)
 
 New features:
