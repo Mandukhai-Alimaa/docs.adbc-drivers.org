@@ -23,7 +23,6 @@ New features:
 
 - Implement GetTableSchema
 - Add option to set catalog on initial connect
-- Add support for Azure Synapse Analytics (Livy only)
 
 Fixes:
 
