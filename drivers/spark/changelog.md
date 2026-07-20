@@ -17,6 +17,19 @@
 
 # Changelog for Apache Spark Driver
 
+## v0.1.0 (2026-07-20)
+
+New features:
+
+- Implement GetTableSchema
+- Add option to set catalog on initial connect
+- Add support for Azure Synapse Analytics (Livy only)
+
+Fixes:
+
+- Test alternate catalogs/schemas
+- guard against panic in Livy
+
 ## v0.1.0-alpha.3 (2026-07-10)
 
 New features:
